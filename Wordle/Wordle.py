@@ -38,8 +38,20 @@ def check_guess(guess, word, status, mode):
         score += status[i]
     return status, score
 
-def print_word():
-    pass
+def print_word(guess, status, mode):
+    for i in range(mode):
+        if status[i] == 2:
+            print_with_background_color(" " + guess[i] + " ", 'green')
+        elif status[i] == 1:
+            print_with_background_color(" " + guess[i] + " ", 'yellow')
+        else:
+            print_with_background_color(" " + guess[i] + " ", 'red')
+            
+        print(" ", end="")
+
+    print("\n", end="")
+
+
 
 def game(mode):
 
@@ -61,7 +73,7 @@ def game(mode):
         status = [0 for _ in range(mode)]
         status, score = check_guess(guess, word, status, mode)
         print(f"Guess {i+1} = ", end="")
-        print_word()
+        print_word(guess, status, mode)
 
 
 
