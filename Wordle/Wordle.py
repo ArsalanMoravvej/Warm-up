@@ -1,7 +1,10 @@
 import sys
 from random import choice
 
-
+def clear_last_line():
+    sys.stdout.write("\033[F")  # Move the cursor to the previous line
+    sys.stdout.write("\033[K")  # Clear the line
+    
 def print_with_background_color(text, background_color, new_line = False):
     colors = {
         'black': '\033[40m',
@@ -24,6 +27,7 @@ def get_guess(mode):
     guess = ""
     while len(guess) != mode:
         guess = input(f"Input a {mode}-letter word: ")
+        clear_last_line()
     return guess
 
 def check_guess(guess, word, status, mode):
@@ -46,12 +50,10 @@ def print_word(guess, status, mode):
             print_with_background_color(" " + guess[i] + " ", 'yellow')
         else:
             print_with_background_color(" " + guess[i] + " ", 'red')
-            
+
         print(" ", end="")
 
-    print("\n", end="")
-
-
+    print("\n\n", end="")
 
 def game(mode):
 
@@ -60,13 +62,17 @@ def game(mode):
         contents = file.read()
 
     word = choice(contents.split("\n"))
-    print(word)
 
     guesses = mode + 1
     won = False
-
+    
+    print("")
+    print("")
+    print("             ", end="")
     print_with_background_color("This is WORDLE!", 'cyan', new_line=True)
+    print("")
     print_with_background_color(f"You have {guesses} tries to guess the {mode}-letter word", 'magenta', new_line=True)
+    print("")
 
     for i in range(guesses):
         guess = get_guess(mode)
@@ -74,24 +80,35 @@ def game(mode):
         status, score = check_guess(guess, word, status, mode)
         print(f"Guess {i+1} = ", end="")
         print_word(guess, status, mode)
+        
+        if score == mode * 2:
+            won = True
+            break
+    
+    return won, i, word
 
 
+def main():
+    try:
 
+        initiate = int(sys.argv[1])
+    except:
 
-
-
-
-try:
-
-    initiate = int(sys.argv[1])
-except:
-
-    print_with_background_color("Invalid entry!", 'red', new_line=True)
-    print_with_background_color("Usage: ./wordle.py [wordsize]", 'blue', new_line=True)
-else:
-
-    if 8 >= initiate >= 5:
-        game(initiate)
-    else:
         print_with_background_color("Invalid entry!", 'red', new_line=True)
-        print_with_background_color("Error: wordsize must be either 5, 6, 7, or 8", 'blue', new_line=True)
+        print_with_background_color("Usage: ./wordle.py [wordsize]", 'blue', new_line=True)
+    else:
+
+        if 8 >= initiate >= 5:
+            stat, i, word = game(initiate)
+            if stat:
+                print(f"You won!\nNumber of attempt: {i + 1}")
+            else:
+                print(f"lose :(\nThe word was {word}")
+        else:
+            print_with_background_color("Invalid entry!", 'red', new_line=True)
+            print_with_background_color("Error: wordsize must be either 5, 6, 7, or 8", 'blue', new_line=True)
+
+
+
+if __name__ == '__main__':
+    main()
