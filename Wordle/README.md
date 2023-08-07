@@ -11,7 +11,9 @@ Wordle is a simple word-guessing game. The game prompts the player to guess a wo
 1. Open the terminal or command prompt.
 2. Navigate to the directory where the game script is located.
 3. Run the script using the Python interpreter: `python wordle.py <word_length>`
+    
     - Replace `<word_length>` with an integer value between 5 and 8 (inclusive). This specifies the length of the word to be guessed.
+
 4. The game will start and prompt you to enter a word of the specified length.
 5. Enter your guess and press Enter.
 6. The game will provide feedback on each guess and prompt you to make another guess.
@@ -22,7 +24,7 @@ Wordle is a simple word-guessing game. The game prompts the player to guess a wo
 The code is a simple game called "Wordle". Here's a breakdown of what it does:
 
 1. It imports the sys module and the choice function from the random module.
-2. 2. It defines two helper functions: clear_last_line and print_with_background_color.
+2. It defines two helper functions: clear_last_line and print_with_background_color.
 
     - clear_last_line clears the last line in the command line interface.
     - print_with_background_color prints a text with a specified background color in the command line interface.
