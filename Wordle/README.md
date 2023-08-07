@@ -11,8 +11,8 @@ Wordle is a simple word-guessing game. The game prompts the player to guess a wo
 1. Open the terminal or command prompt.
 2. Navigate to the directory where the game script is located.
 3. Run the script using the Python interpreter:
- bash   
-```
+    
+```bash
 python wordle.py <word_length>
 ```
     - Replace `<word_length>` with an integer value between 5 and 8 (inclusive). This specifies the length of the word to be guessed.
