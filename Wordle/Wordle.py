@@ -32,7 +32,7 @@ def get_guess(mode):
     #ensuring that it's in valid length.
     guess = ""
     while len(guess) != mode:
-        guess = input(f"Input a {mode}-letter word: ")
+        guess = input(f"Input a {mode}-letter word: ").lower()
 
         #clearing the last line after the user has entered their guess.
         clear_last_line()
@@ -66,15 +66,15 @@ def print_word(guess, status, mode):
 
         if status[i] == 2:
 
-            print_with_background_color(" " + guess[i] + " ", 'green')
+            print_with_background_color(" " + guess[i].upper() + " ", 'green')
         
         elif status[i] == 1:
 
-            print_with_background_color(" " + guess[i] + " ", 'yellow')
+            print_with_background_color(" " + guess[i].upper() + " ", 'yellow')
 
         else:
 
-            print_with_background_color(" " + guess[i] + " ", 'red')
+            print_with_background_color(" " + guess[i].upper() + " ", 'red')
 
         print(" ", end="")
 
