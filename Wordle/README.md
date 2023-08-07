@@ -23,7 +23,7 @@ Wordle is a simple word-guessing game. The game prompts the player to guess a wo
 ## Code Explained
 The code is a simple game called "Wordle". Here's a breakdown of what it does:
 
-1. It imports the sys module and the choice function from the random module.
+1. It imports the <span style=\"color: yellow;\">", sys, "</span> module and the choice function from the random module.
 2. It defines two helper functions: clear_last_line and print_with_background_color.
 
     - clear_last_line clears the last line in the command line interface.
