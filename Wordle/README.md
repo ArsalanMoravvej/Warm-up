@@ -21,5 +21,10 @@ Wordle is a simple word-guessing game. The game prompts the player to guess a wo
 ## Support
 If you encounter any issues or have any questions about the game, please contact the developer at example@gmail.com.
 
-## License
-This game is licensed under the MIT License. See the LICENSE file for more details.
+
+```Python
+a = 5
+b = 10
+sum = a + b
+print("The sum of", a, "and", b, "is", sum)
+```
