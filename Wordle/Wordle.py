@@ -137,7 +137,7 @@ def show_results(res, i, word):
         # Announcement of winnig and number of attempts.
         print(f"You won!\nNumber of attempt: {i + 1}")
     else:
-        # # Announcement of defeat and the actual word.
+        # Announcement of defeat and the actual word.
         print(f"lose :(\nThe word was {word}")
 
 # the main program.
